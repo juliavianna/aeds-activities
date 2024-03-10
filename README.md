@@ -6,7 +6,8 @@
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)
 
-<img src="imagem.png" alt="Exemplo imagem">
+
+
 ###Descrição
 > O projeto reune todos os códigos desenvolvidos em Java na disciplina de Algoritmos e Estrutura de Dados II (AEDS) no curso de Engenharia de Software da PUC Minas
 
