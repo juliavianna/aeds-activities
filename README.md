@@ -12,4 +12,4 @@
 > O projeto reune todos os códigos desenvolvidos em Java na disciplina de Algoritmos e Estrutura de Dados II (AEDS) no curso de Engenharia de Software da PUC Minas
 
 ### Ajustes e updates
-O projeto estará em constante crescimento e atualização enquanto a disciplina é cursada 
+O projeto estará em constante crescimento e atualização enquanto a disciplina é cursada ao longo de 2024.1
