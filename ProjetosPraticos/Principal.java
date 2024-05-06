@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import airbnb.Acomodacao;
+import airbnb.CarregarDadosAirbnb;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
