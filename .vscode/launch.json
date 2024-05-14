@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ativ5_enesimoFibonacci",
+            "request": "launch",
+            "mainClass": "ativ5_enesimoFibonacci",
+            "projectName": "aeds-activities_4d2667a5"
+        },
+        {
+            "type": "java",
+            "name": "EstacionamentoFilas",
+            "request": "launch",
+            "mainClass": "EstacionamentoFilas",
+            "projectName": "aeds-activities_4d2667a5"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"

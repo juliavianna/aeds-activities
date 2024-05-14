@@ -1,9 +1,10 @@
-
-
 import java.io.*;
 import java.util.*;
 
 public class AirbnbMergesort {
+
+    static int comparacoes = 0;
+    static int movimentacoes = 0;
 
     static class Acomodacao {
         private int roomId;
@@ -42,22 +43,24 @@ public class AirbnbMergesort {
 
         public int compareTo(Acomodacao other) {
             if (this.price != other.price) {
+                comparacoes++;
                 return Double.compare(this.price, other.price);
             } else {
+                comparacoes++;
                 return Integer.compare(this.roomId, other.roomId);
             }
         }
     }
 
     public static void main(String[] args) throws IOException {
-         int comparacoes = 0;
-         int movimentacoes = 0;
-
         Scanner scanner = new Scanner(System.in);
         Acomodacao[] acomodacoes = lerAcomodacoes("/tmp/dados_airbnb.txt");
-        mergeSort(acomodacoes, 0, acomodacoes.length - 1);
 
-        // System.out.println("Digite os roomIds das acomodações e 'FIM' para encerrar:");
+        long startTime = System.currentTimeMillis();
+        mergeSort(acomodacoes, 0, acomodacoes.length - 1);
+        long endTime = System.currentTimeMillis();
+        long elapsedTime = endTime - startTime;
+
         List<Integer> roomIds = new ArrayList<>();
         String input;
         while (scanner.hasNextLine() && !(input = scanner.nextLine()).equals("FIM")) {
@@ -76,18 +79,19 @@ public class AirbnbMergesort {
                 System.out.println("Acomodação com roomId " + roomId + " não encontrada.");
             }
         }
-        FileWriter logWriter = new FileWriter("matricula_mergesort.txt");
-        logWriter.write("778546\t" + comparacoes + "\t" + movimentacoes+ "\t" + movimentacoes);
+
+        FileWriter logWriter = new FileWriter("778546_bolha.txt");
+        logWriter.write("778546\t" + elapsedTime + "\t" + comparacoes + "\t" + movimentacoes);
         logWriter.close();
     }
 
     private static Acomodacao[] lerAcomodacoes(String arquivo) {
         try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
-            br.readLine(); 
+            br.readLine();
             return br.lines().map(Acomodacao::new).toArray(Acomodacao[]::new);
         } catch (IOException e) {
             System.err.println("Erro ao ler o arquivo: " + e.getMessage());
-            return new Acomodacao[0]; 
+            return new Acomodacao[0];
         }
     }
 
@@ -97,7 +101,6 @@ public class AirbnbMergesort {
             mergeSort(acomodacoes, inicio, meio);
             mergeSort(acomodacoes, meio + 1, fim);
             merge(acomodacoes, inicio, meio, fim);
-            
         }
     }
 
@@ -115,7 +118,6 @@ public class AirbnbMergesort {
         int k = inicio;
         while (i < n1 && j < n2) {
             if (L[i].compareTo(R[j]) <= 0) {
-                
                 acomodacoes[k] = L[i];
                 i++;
             } else {
@@ -123,18 +125,21 @@ public class AirbnbMergesort {
                 j++;
             }
             k++;
+            movimentacoes++;
         }
 
         while (i < n1) {
             acomodacoes[k] = L[i];
             i++;
             k++;
+            movimentacoes++;
         }
 
         while (j < n2) {
             acomodacoes[k] = R[j];
             j++;
             k++;
+            movimentacoes++;
         }
     }
 

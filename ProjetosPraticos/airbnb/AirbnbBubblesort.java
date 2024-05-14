@@ -69,6 +69,8 @@ public class AirbnbBubblesort {
         Acomodacao[] acomodacoes = new Acomodacao[listaAcomodacoes.size()];
         listaAcomodacoes.toArray(acomodacoes);
 
+        bubbleSort(acomodacoes);
+
       //  System.out.println("Digite os roomIds das acomodações e 'FIM' para encerrar:");
         List<Integer> roomIds = new ArrayList<>();
         String input = scanner.nextLine();
